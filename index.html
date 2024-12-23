@@ -3,73 +3,313 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>My Store</title>
-    <style>
-        body {
-            margin: 0;
-            font-family: Arial, sans-serif;
-        }
-        /* شريط الإشعارات العلوي */
-        .notification-bar {
-            background-color: #000;
-            color: #fff;
-            text-align: center;
-            padding: 10px;
-            font-size: 0.9em;
-            border-bottom: 1px solid #555;
-        }
-        /* شريط التنقل العلوي */
-        .navbar {
-            display: flex;
-            justify-content: space-between;
-            align-items: center;
-            padding: 10px 20px;
-            background-color: #fff;
-            border-bottom: 1px solid #ddd;
-        }
-        .navbar .logo {
-            font-size: 1.5em;
-            font-weight: bold;
-            color: #000;
-        }
-        .navbar a {
-            color: #000;
-            text-decoration: none;
-            margin: 0 10px;
-            font-size: 0.9em;
-        }
-        .navbar a:hover {
-            text-decoration: underline;
-        }
-        .navbar .menu {
-            display: flex;
-            align-items: center;
-        }
-        .navbar .icons a {
-            font-size: 1.2em;
-            margin-left: 10px;
-        }
-    </style>
+    <title>Gift Card | I Love Ugly</title>
 </head>
 <body>
-    <!-- شريط الإشعارات العلوي -->
-    <div class="notification-bar">
-        Get free shipping on orders over $50! | New collections just arrived!
+    <!-- Announcement Bar with Slider -->
+    <div class="announcement-bar">
+        <div class="announcement-slider">
+            <div class="slide">FREE SHIPPING ON NZ ORDERS OVER $100</div>
+            <div class="slide">SHOP NEW ARRIVALS</div>
+            <div class="slide">EASY RETURNS</div>
+        </div>
     </div>
 
-    <!-- شريط التنقل العلوي -->
-    <div class="navbar">
-        <div class="logo">ILU Replica</div>
-        <div class="menu">
-            <a href="#">Home</a>
-            <a href="#">Shop</a>
-            <a href="#">Collections</a>
-            <a href="#">Contact</a>
+    <!-- Main Navigation -->
+    <nav class="main-nav">
+        <!-- Mobile Menu Button -->
+        <button class="mobile-menu-toggle">
+            <span class="menu-icon"></span>
+        </button>
+
+        <!-- Search Icon -->
+        <div class="search-toggle">
+            <svg class="search-icon"><!-- SVG path --></svg>
         </div>
-        <div class="icons">
-            <a href="#">🔍</a>
-            <a href="#">🛒</a>
-            <a href="#">👤</a>
+
+        <!-- Center Logo -->
+        <div class="logo-container">
+            <a href="/" class="logo">I LOVE UGLY</a>
+        </div>
+
+        <!-- Account & Cart -->
+        <div class="nav-actions">
+            <a href="/account" class="account-link">
+                <svg class="account-icon"><!-- SVG path --></svg>
+            </a>
+            <button class="cart-toggle">
+                <svg class="cart-icon"><!-- SVG path --></svg>
+                <span class="cart-count">0</span>
+            </button>
+        </div>
+
+        <!-- Mega Menu -->
+        <div class="mega-menu">
+            <div class="menu-column">
+                <h3>Shop</h3>
+                <ul>
+                    <li><a href="/collections/new-arrivals">New Arrivals</a></li>
+                    <li><a href="/collections/best-sellers">Best Sellers</a></li>
+                    <li><a href="/collections/all">Shop All</a></li>
+                </ul>
+            </div>
+            <div class="menu-column">
+                <h3>Categories</h3>
+                <ul>
+                    <li><a href="/collections/tops">Tops</a></li>
+                    <li><a href="/collections/bottoms">Bottoms</a></li>
+                    <li><a href="/collections/accessories">Accessories</a></li>
+                </ul>
+            </div>
+            <div class="menu-promo">
+                <img src="menu-promo.jpg" alt="New Collection">
+                <h4>Spring Collection</h4>
+                <a href="/collections/spring">Shop Now</a>
+            </div>
+        </div>
+    </nav>
+
+    <!-- Search Overlay -->
+    <div class="search-overlay">
+        <div class="search-container">
+            <form class="search-form">
+                <input type="text" placeholder="Search products...">
+                <button type="submit">
+                    <svg class="search-icon"><!-- SVG path --></svg>
+                </button>
+            </form>
+            <div class="quick-links">
+                <h4>Popular Searches</h4>
+                <a href="#">T-Shirts</a>
+                <a href="#">Pants</a>
+                <a href="#">Accessories</a>
+            </div>
+            <div class="trending-products">
+                <h4>Trending</h4>
+                <!-- Product Grid -->
+            </div>
+        </div>
+    </div>
+
+    <!-- Cart Sidebar -->
+    <div class="cart-sidebar">
+        <div class="cart-header">
+            <h3>Shopping Cart</h3>
+            <button class="close-cart">×</button>
+        </div>
+        <div class="cart-items">
+            <!-- Empty Cart Message -->
+            <div class="empty-cart">
+                <p>Your cart is empty</p>
+                <a href="/collections/all" class="button">Continue Shopping</a>
+            </div>
+        </div>
+        <div class="cart-footer">
+            <div class="subtotal">
+                <span>Subtotal</span>
+                <span>$0.00 NZD</span>
+            </div>
+            <button class="checkout-button">Checkout</button>
+            <p class="shipping-note">Shipping calculated at checkout</p>
+        </div>
+    </div>
+
+    <!-- Main Content -->
+    <main class="product-page">
+        <!-- Breadcrumbs -->
+        <nav class="breadcrumbs">
+            <a href="/">Home</a>
+            <span>/</span>
+            <span>Gift Card</span>
+        </nav>
+
+        <!-- Product Section -->
+        <div class="product-container">
+            <!-- Product Gallery -->
+            <div class="product-gallery">
+                <div class="gallery-main">
+                    <img src="gift-card.jpg" alt="Gift Card">
+                </div>
+                <div class="gallery-thumbnails">
+                    <button class="thumbnail active">
+                        <img src="gift-card-thumb.jpg" alt="Gift Card Thumbnail">
+                    </button>
+                </div>
+            </div>
+
+            <!-- Product Information -->
+            <div class="product-info">
+                <h1 class="product-title">Gift Card</h1>
+                
+                <div class="product-price">
+                    <span class="price">From $25.00 NZD</span>
+                </div>
+
+                <!-- Product Form -->
+                <form class="product-form">
+                    <div class="form-group">
+                        <label for="amount">Amount</label>
+                        <div class="select-wrapper">
+                            <select id="amount" name="amount" required>
+                                <option value="25">$25.00 NZD</option>
+                                <option value="50">$50.00 NZD</option>
+                                <option value="100">$100.00 NZD</option>
+                                <option value="200">$200.00 NZD</option>
+                            </select>
+                            <svg class="select-arrow"><!-- SVG path --></svg>
+                        </div>
+                    </div>
+
+                    <button type="submit" class="add-to-cart-button">
+                        <span>Add to Cart</span>
+                    </button>
+
+                    <!-- Buy Now Button for Shopify -->
+                    <button type="button" class="buy-now-button">
+                        <span>Buy Now</span>
+                    </button>
+                </form>
+
+                <!-- Product Description -->
+                <div class="product-description">
+                    <div class="description-content">
+                        <p>The I Love Ugly Gift Card is the perfect gift for someone special.</p>
+                        <ul>
+                            <li>Digital gift card delivered via email</li>
+                            <li>Valid for 12 months from purchase</li>
+                            <li>Can be used online and in-store</li>
+                            <li>Cannot be used in conjunction with other offers</li>
+                        </ul>
+                    </div>
+                </div>
+
+                <!-- Accordion Sections -->
+                <div class="product-accordions">
+                    <button class="accordion-trigger">
+                        <span>Shipping Information</span>
+                        <svg class="accordion-icon"><!-- SVG path --></svg>
+                    </button>
+                    <div class="accordion-content">
+                        <p>Digital gift cards are sent instantly via email.</p>
+                    </div>
+
+                    <button class="accordion-trigger">
+                        <span>Returns Policy</span>
+                        <svg class="accordion-icon"><!-- SVG path --></svg>
+                    </button>
+                    <div class="accordion-content">
+                        <p>Gift cards are non-refundable.</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- Related Products -->
+        <section class="related-products">
+            <h2>You May Also Like</h2>
+            <div class="product-grid">
+                <!-- Product Cards -->
+            </div>
+        </section>
+    </main>
+
+    <!-- Recently Viewed Products -->
+    <section class="recently-viewed">
+        <h2>Recently Viewed</h2>
+        <div class="product-slider">
+            <!-- Product Slides -->
+        </div>
+    </section>
+
+    <!-- Newsletter Section -->
+    <section class="newsletter">
+        <div class="newsletter-content">
+            <h2>Join the Club</h2>
+            <p>Subscribe to receive updates, access to exclusive deals, and more.</p>
+            <form class="newsletter-form">
+                <input type="email" placeholder="Enter your email">
+                <button type="submit">Subscribe</button>
+            </form>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer class="site-footer">
+        <!-- Footer Navigation -->
+        <div class="footer-nav">
+            <div class="footer-column">
+                <h3>Help</h3>
+                <ul>
+                    <li><a href="/pages/shipping">Shipping</a></li>
+                    <li><a href="/pages/returns">Returns</a></li>
+                    <li><a href="/pages/size-guide">Size Guide</a></li>
+                    <li><a href="/pages/contact">Contact</a></li>
+                    <li><a href="/pages/faq">FAQ</a></li>
+                </ul>
+            </div>
+
+            <div class="footer-column">
+                <h3>Shop</h3>
+                <ul>
+                    <li><a href="/collections/new-arrivals">New Arrivals</a></li>
+                    <li><a href="/collections/best-sellers">Best Sellers</a></li>
+                    <li><a href="/collections/sale">Sale</a></li>
+                    <li><a href="/products/gift-card">Gift Cards</a></li>
+                </ul>
+            </div>
+
+            <div class="footer-column">
+                <h3>Company</h3>
+                <ul>
+                    <li><a href="/pages/about-us">About Us</a></li>
+                    <li><a href="/pages/stores">Stores</a></li>
+                    <li><a href="/pages/careers">Careers</a></li>
+                    <li><a href="/pages/sustainability">Sustainability</a></li>
+                </ul>
+            </div>
+
+            <div class="footer-column">
+                <h3>Connect</h3>
+                <div class="social-links">
+                    <a href="#" class="social-link">
+                        <svg class="instagram-icon"><!-- SVG path --></svg>
+                    </a>
+                    <a href="#" class="social-link">
+                        <svg class="facebook-icon"><!-- SVG path --></svg>
+                    </a>
+                    <a href="#" class="social-link">
+                        <svg class="twitter-icon"><!-- SVG path --></svg>
+                    </a>
+                </div>
+            </div>
+        </div>
+
+        <!-- Footer Bottom -->
+        <div class="footer-bottom">
+            <div class="footer-info">
+                <p>&copy; 2024 I Love Ugly. All rights reserved.</p>
+                <div class="footer-links">
+                    <a href="/pages/privacy-policy">Privacy Policy</a>
+                    <a href="/pages/terms-of-service">Terms of Service</a>
+                </div>
+            </div>
+            <div class="payment-methods">
+                <img src="payment-icons.png" alt="Payment Methods">
+            </div>
+        </div>
+    </footer>
+
+    <!-- Back to Top Button -->
+    <button class="back-to-top">
+        <svg class="arrow-up"><!-- SVG path --></svg>
+    </button>
+
+    <!-- Cookie Notice -->
+    <div class="cookie-notice">
+        <p>We use cookies to improve your experience. By continuing to browse, you agree to our use of cookies.</p>
+        <div class="cookie-actions">
+            <button class="accept-cookies">Accept</button>
+            <a href="/pages/privacy-policy">Learn More</a>
         </div>
     </div>
 </body>
