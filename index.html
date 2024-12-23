@@ -1,316 +1,317 @@
-<!DOCTYPE html>
-<html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Gift Card | I Love Ugly</title>
-</head>
-<body>
-    <!-- Announcement Bar with Slider -->
-    <div class="announcement-bar">
-        <div class="announcement-slider">
-            <div class="slide">FREE SHIPPING ON NZ ORDERS OVER $100</div>
-            <div class="slide">SHOP NEW ARRIVALS</div>
-            <div class="slide">EASY RETURNS</div>
-        </div>
-    </div>
+/* Variables */
+:root {
+    --primary-color: #000000;
+    --secondary-color: #ffffff;
+    --accent-color: #f0f0f0;
+    --text-color: #333333;
+    --border-color: #e5e5e5;
+    --font-primary: "Helvetica Neue", sans-serif;
+    --font-secondary: "Arial", sans-serif;
+}
 
-    <!-- Main Navigation -->
-    <nav class="main-nav">
-        <!-- Mobile Menu Button -->
-        <button class="mobile-menu-toggle">
-            <span class="menu-icon"></span>
-        </button>
+/* Reset & Base Styles */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
 
-        <!-- Search Icon -->
-        <div class="search-toggle">
-            <svg class="search-icon"><!-- SVG path --></svg>
-        </div>
+body {
+    font-family: var(--font-primary);
+    color: var(--text-color);
+    line-height: 1.5;
+}
 
-        <!-- Center Logo -->
-        <div class="logo-container">
-            <a href="/" class="logo">I LOVE UGLY</a>
-        </div>
+/* Announcement Bar */
+.announcement-bar {
+    background: var(--primary-color);
+    color: var(--secondary-color);
+    text-align: center;
+    padding: 10px 0;
+    font-size: 12px;
+    letter-spacing: 1px;
+}
 
-        <!-- Account & Cart -->
-        <div class="nav-actions">
-            <a href="/account" class="account-link">
-                <svg class="account-icon"><!-- SVG path --></svg>
-            </a>
-            <button class="cart-toggle">
-                <svg class="cart-icon"><!-- SVG path --></svg>
-                <span class="cart-count">0</span>
-            </button>
-        </div>
+.announcement-slider {
+    display: flex;
+    overflow: hidden;
+}
 
-        <!-- Mega Menu -->
-        <div class="mega-menu">
-            <div class="menu-column">
-                <h3>Shop</h3>
-                <ul>
-                    <li><a href="/collections/new-arrivals">New Arrivals</a></li>
-                    <li><a href="/collections/best-sellers">Best Sellers</a></li>
-                    <li><a href="/collections/all">Shop All</a></li>
-                </ul>
-            </div>
-            <div class="menu-column">
-                <h3>Categories</h3>
-                <ul>
-                    <li><a href="/collections/tops">Tops</a></li>
-                    <li><a href="/collections/bottoms">Bottoms</a></li>
-                    <li><a href="/collections/accessories">Accessories</a></li>
-                </ul>
-            </div>
-            <div class="menu-promo">
-                <img src="menu-promo.jpg" alt="New Collection">
-                <h4>Spring Collection</h4>
-                <a href="/collections/spring">Shop Now</a>
-            </div>
-        </div>
-    </nav>
+.slide {
+    flex: 0 0 100%;
+    animation: slide 15s infinite;
+}
 
-    <!-- Search Overlay -->
-    <div class="search-overlay">
-        <div class="search-container">
-            <form class="search-form">
-                <input type="text" placeholder="Search products...">
-                <button type="submit">
-                    <svg class="search-icon"><!-- SVG path --></svg>
-                </button>
-            </form>
-            <div class="quick-links">
-                <h4>Popular Searches</h4>
-                <a href="#">T-Shirts</a>
-                <a href="#">Pants</a>
-                <a href="#">Accessories</a>
-            </div>
-            <div class="trending-products">
-                <h4>Trending</h4>
-                <!-- Product Grid -->
-            </div>
-        </div>
-    </div>
+@keyframes slide {
+    0%, 33.33% { transform: translateX(0); }
+    33.34%, 66.66% { transform: translateX(-100%); }
+    66.67%, 100% { transform: translateX(-200%); }
+}
 
-    <!-- Cart Sidebar -->
-    <div class="cart-sidebar">
-        <div class="cart-header">
-            <h3>Shopping Cart</h3>
-            <button class="close-cart">×</button>
-        </div>
-        <div class="cart-items">
-            <!-- Empty Cart Message -->
-            <div class="empty-cart">
-                <p>Your cart is empty</p>
-                <a href="/collections/all" class="button">Continue Shopping</a>
-            </div>
-        </div>
-        <div class="cart-footer">
-            <div class="subtotal">
-                <span>Subtotal</span>
-                <span>$0.00 NZD</span>
-            </div>
-            <button class="checkout-button">Checkout</button>
-            <p class="shipping-note">Shipping calculated at checkout</p>
-        </div>
-    </div>
+/* Navigation */
+.main-nav {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    align-items: center;
+    padding: 20px;
+    border-bottom: 1px solid var(--border-color);
+    position: sticky;
+    top: 0;
+    background: var(--secondary-color);
+    z-index: 1000;
+}
 
-    <!-- Main Content -->
-    <main class="product-page">
-        <!-- Breadcrumbs -->
-        <nav class="breadcrumbs">
-            <a href="/">Home</a>
-            <span>/</span>
-            <span>Gift Card</span>
-        </nav>
+.logo-container {
+    text-align: center;
+}
 
-        <!-- Product Section -->
-        <div class="product-container">
-            <!-- Product Gallery -->
-            <div class="product-gallery">
-                <div class="gallery-main">
-                    <img src="gift-card.jpg" alt="Gift Card">
-                </div>
-                <div class="gallery-thumbnails">
-                    <button class="thumbnail active">
-                        <img src="gift-card-thumb.jpg" alt="Gift Card Thumbnail">
-                    </button>
-                </div>
-            </div>
+.logo {
+    font-size: 24px;
+    font-weight: 700;
+    text-decoration: none;
+    color: var(--primary-color);
+    letter-spacing: 2px;
+}
 
-            <!-- Product Information -->
-            <div class="product-info">
-                <h1 class="product-title">Gift Card</h1>
-                
-                <div class="product-price">
-                    <span class="price">From $25.00 NZD</span>
-                </div>
+.nav-actions {
+    display: flex;
+    justify-content: flex-end;
+    gap: 20px;
+}
 
-                <!-- Product Form -->
-                <form class="product-form">
-                    <div class="form-group">
-                        <label for="amount">Amount</label>
-                        <div class="select-wrapper">
-                            <select id="amount" name="amount" required>
-                                <option value="25">$25.00 NZD</option>
-                                <option value="50">$50.00 NZD</option>
-                                <option value="100">$100.00 NZD</option>
-                                <option value="200">$200.00 NZD</option>
-                            </select>
-                            <svg class="select-arrow"><!-- SVG path --></svg>
-                        </div>
-                    </div>
+/* Mega Menu */
+.mega-menu {
+    position: absolute;
+    top: 100%;
+    left: 0;
+    width: 100%;
+    background: var(--secondary-color);
+    padding: 40px;
+    display: none;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 30px;
+    border-top: 1px solid var(--border-color);
+}
 
-                    <button type="submit" class="add-to-cart-button">
-                        <span>Add to Cart</span>
-                    </button>
+.menu-column h3 {
+    font-size: 16px;
+    margin-bottom: 15px;
+    text-transform: uppercase;
+}
 
-                    <!-- Buy Now Button for Shopify -->
-                    <button type="button" class="buy-now-button">
-                        <span>Buy Now</span>
-                    </button>
-                </form>
+.menu-column ul {
+    list-style: none;
+}
 
-                <!-- Product Description -->
-                <div class="product-description">
-                    <div class="description-content">
-                        <p>The I Love Ugly Gift Card is the perfect gift for someone special.</p>
-                        <ul>
-                            <li>Digital gift card delivered via email</li>
-                            <li>Valid for 12 months from purchase</li>
-                            <li>Can be used online and in-store</li>
-                            <li>Cannot be used in conjunction with other offers</li>
-                        </ul>
-                    </div>
-                </div>
+.menu-column a {
+    color: var(--text-color);
+    text-decoration: none;
+    font-size: 14px;
+    line-height: 2;
+}
 
-                <!-- Accordion Sections -->
-                <div class="product-accordions">
-                    <button class="accordion-trigger">
-                        <span>Shipping Information</span>
-                        <svg class="accordion-icon"><!-- SVG path --></svg>
-                    </button>
-                    <div class="accordion-content">
-                        <p>Digital gift cards are sent instantly via email.</p>
-                    </div>
+/* Product Page */
+.product-container {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 50px;
+    padding: 50px;
+    max-width: 1400px;
+    margin: 0 auto;
+}
 
-                    <button class="accordion-trigger">
-                        <span>Returns Policy</span>
-                        <svg class="accordion-icon"><!-- SVG path --></svg>
-                    </button>
-                    <div class="accordion-content">
-                        <p>Gift cards are non-refundable.</p>
-                    </div>
-                </div>
-            </div>
-        </div>
+.product-gallery {
+    position: sticky;
+    top: 100px;
+}
 
-        <!-- Related Products -->
-        <section class="related-products">
-            <h2>You May Also Like</h2>
-            <div class="product-grid">
-                <!-- Product Cards -->
-            </div>
-        </section>
-    </main>
+.gallery-main img {
+    width: 100%;
+    height: auto;
+}
 
-    <!-- Recently Viewed Products -->
-    <section class="recently-viewed">
-        <h2>Recently Viewed</h2>
-        <div class="product-slider">
-            <!-- Product Slides -->
-        </div>
-    </section>
+/* Product Info */
+.product-title {
+    font-size: 24px;
+    margin-bottom: 20px;
+}
 
-    <!-- Newsletter Section -->
-    <section class="newsletter">
-        <div class="newsletter-content">
-            <h2>Join the Club</h2>
-            <p>Subscribe to receive updates, access to exclusive deals, and more.</p>
-            <form class="newsletter-form">
-                <input type="email" placeholder="Enter your email">
-                <button type="submit">Subscribe</button>
-            </form>
-        </div>
-    </section>
+.product-price {
+    font-size: 20px;
+    margin-bottom: 30px;
+}
 
-    <!-- Footer -->
-    <footer class="site-footer">
-        <!-- Footer Navigation -->
-        <div class="footer-nav">
-            <div class="footer-column">
-                <h3>Help</h3>
-                <ul>
-                    <li><a href="/pages/shipping">Shipping</a></li>
-                    <li><a href="/pages/returns">Returns</a></li>
-                    <li><a href="/pages/size-guide">Size Guide</a></li>
-                    <li><a href="/pages/contact">Contact</a></li>
-                    <li><a href="/pages/faq">FAQ</a></li>
-                </ul>
-            </div>
+.product-form {
+    margin-bottom: 40px;
+}
 
-            <div class="footer-column">
-                <h3>Shop</h3>
-                <ul>
-                    <li><a href="/collections/new-arrivals">New Arrivals</a></li>
-                    <li><a href="/collections/best-sellers">Best Sellers</a></li>
-                    <li><a href="/collections/sale">Sale</a></li>
-                    <li><a href="/products/gift-card">Gift Cards</a></li>
-                </ul>
-            </div>
+.form-group {
+    margin-bottom: 20px;
+}
 
-            <div class="footer-column">
-                <h3>Company</h3>
-                <ul>
-                    <li><a href="/pages/about-us">About Us</a></li>
-                    <li><a href="/pages/stores">Stores</a></li>
-                    <li><a href="/pages/careers">Careers</a></li>
-                    <li><a href="/pages/sustainability">Sustainability</a></li>
-                </ul>
-            </div>
+.select-wrapper {
+    position: relative;
+    border: 1px solid var(--border-color);
+}
 
-            <div class="footer-column">
-                <h3>Connect</h3>
-                <div class="social-links">
-                    <a href="#" class="social-link">
-                        <svg class="instagram-icon"><!-- SVG path --></svg>
-                    </a>
-                    <a href="#" class="social-link">
-                        <svg class="facebook-icon"><!-- SVG path --></svg>
-                    </a>
-                    <a href="#" class="social-link">
-                        <svg class="twitter-icon"><!-- SVG path --></svg>
-                    </a>
-                </div>
-            </div>
-        </div>
+select {
+    width: 100%;
+    padding: 15px;
+    border: none;
+    appearance: none;
+    background: transparent;
+    font-size: 16px;
+}
 
-        <!-- Footer Bottom -->
-        <div class="footer-bottom">
-            <div class="footer-info">
-                <p>&copy; 2024 I Love Ugly. All rights reserved.</p>
-                <div class="footer-links">
-                    <a href="/pages/privacy-policy">Privacy Policy</a>
-                    <a href="/pages/terms-of-service">Terms of Service</a>
-                </div>
-            </div>
-            <div class="payment-methods">
-                <img src="payment-icons.png" alt="Payment Methods">
-            </div>
-        </div>
-    </footer>
+/* Buttons */
+.add-to-cart-button,
+.buy-now-button {
+    width: 100%;
+    padding: 15px;
+    margin-bottom: 10px;
+    border: none;
+    font-size: 16px;
+    cursor: pointer;
+    text-transform: uppercase;
+    letter-spacing: 1px;
+}
 
-    <!-- Back to Top Button -->
-    <button class="back-to-top">
-        <svg class="arrow-up"><!-- SVG path --></svg>
-    </button>
+.add-to-cart-button {
+    background: var(--primary-color);
+    color: var(--secondary-color);
+}
 
-    <!-- Cookie Notice -->
-    <div class="cookie-notice">
-        <p>We use cookies to improve your experience. By continuing to browse, you agree to our use of cookies.</p>
-        <div class="cookie-actions">
-            <button class="accept-cookies">Accept</button>
-            <a href="/pages/privacy-policy">Learn More</a>
-        </div>
-    </div>
-</body>
-</html>
+.buy-now-button {
+    background: var(--secondary-color);
+    color: var(--primary-color);
+    border: 1px solid var(--primary-color);
+}
+
+/* Footer */
+.site-footer {
+    background: var(--primary-color);
+    color: var(--secondary-color);
+    padding: 60px 40px;
+}
+
+.footer-nav {
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    gap: 30px;
+    margin-bottom: 50px;
+}
+
+.footer-column h3 {
+    font-size: 16px;
+    margin-bottom: 20px;
+    text-transform: uppercase;
+}
+
+.footer-column ul {
+    list-style: none;
+}
+
+.footer-column a {
+    color: var(--secondary-color);
+    text-decoration: none;
+    font-size: 14px;
+    line-height: 2;
+}
+
+/* Responsive Design */
+@media (max-width: 768px) {
+    .product-container {
+        grid-template-columns: 1fr;
+    }
+
+    .footer-nav {
+        grid-template-columns: repeat(2, 1fr);
+    }
+}
+
+@media (max-width: 480px) {
+    .footer-nav {
+        grid-template-columns: 1fr;
+    }
+}
+
+/* Cart Sidebar */
+.cart-sidebar {
+    position: fixed;
+    top: 0;
+    right: -400px;
+    width: 400px;
+    height: 100vh;
+    background: var(--secondary-color);
+    padding: 20px;
+    transition: 0.3s;
+    z-index: 1001;
+    box-shadow: -2px 0 10px rgba(0, 0, 0, 0.1);
+}
+
+.cart-sidebar.active {
+    right: 0;
+}
+
+/* Search Overlay */
+.search-overlay {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100vh;
+    background: var(--secondary-color);
+    padding: 40px;
+    display: none;
+    z-index: 1002;
+}
+
+.search-form input {
+    width: 100%;
+    padding: 15px;
+    border: none;
+    border-bottom: 1px solid var(--border-color);
+    font-size: 24px;
+}
+
+/* Back to Top Button */
+.back-to-top {
+    position: fixed;
+    bottom: 20px;
+    right: 20px;
+    background: var(--primary-color);
+    color: var(--secondary-color);
+    width: 40px;
+    height: 40px;
+    border-radius: 50%;
+    border: none;
+    cursor: pointer;
+    display: none;
+}
+
+.back-to-top.visible {
+    display: block;
+}
+
+/* Cookie Notice */
+.cookie-notice {
+    position: fixed;
+    bottom: 0;
+    left: 0;
+    width: 100%;
+    background: var(--primary-color);
+    color: var(--secondary-color);
+    padding: 15px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    z-index: 1003;
+}
+
+.accept-cookies {
+    padding: 8px 20px;
+    background: var(--secondary-color);
+    color: var(--primary-color);
+    border: none;
+    cursor: pointer;
+}
