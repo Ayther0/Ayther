@@ -1,126 +1,286 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="ar" dir="rtl">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Ayther</title>
     <style>
-        /* شريط الإشعارات العلوي */
-        .notification-bar {
+        /* Reset CSS */
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: Arial, sans-serif;
+        }
+
+        /* Announcement Bar */
+        .announcement-bar {
             background-color: #000;
             color: #fff;
             text-align: center;
-            padding: 10px 0;
+            padding: 10px;
             font-size: 14px;
         }
 
-        /* شريط التنقل */
-        .navbar {
+        /* Navigation */
+        .nav-container {
+            position: sticky;
+            top: 0;
+            background-color: #fff;
+            border-bottom: 1px solid #eee;
+            z-index: 1000;
+        }
+
+        .main-nav {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 20px;
             display: flex;
             justify-content: space-between;
             align-items: center;
-            background-color: #333;
-            padding: 10px 20px;
         }
 
-        .navbar .logo {
-            color: #fff;
+        .logo {
             font-size: 24px;
-        }
-
-        .navbar .menu a {
-            color: #fff;
-            margin: 0 15px;
+            font-weight: bold;
             text-decoration: none;
+            color: #000;
         }
 
-        .navbar .icons a {
-            color: #fff;
-            margin: 0 10px;
+        .nav-links {
+            display: flex;
+            gap: 30px;
         }
 
-        /* الصورة الرئيسية (Hero Section) */
+        .nav-links a {
+            text-decoration: none;
+            color: #000;
+            font-size: 16px;
+            transition: color 0.3s;
+        }
+
+        .nav-links a:hover {
+            color: #666;
+        }
+
+        /* Hero Section */
         .hero {
-            position: relative;
+            height: 100vh;
+            background-image: url('https://via.placeholder.com/1920x1080');
+            background-size: cover;
+            background-position: center;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: #fff;
             text-align: center;
-            color: white;
         }
 
-        .hero img {
-            width: 100%;
-            height: auto;
+        .hero-content {
+            background-color: rgba(0, 0, 0, 0.5);
+            padding: 40px;
+            border-radius: 8px;
         }
 
         .hero h1 {
-            position: absolute;
-            top: 50%;
-            left: 50%;
-            transform: translate(-50%, -50%);
-            font-size: 50px;
+            font-size: 48px;
+            margin-bottom: 20px;
         }
 
         .hero p {
             font-size: 20px;
+            margin-bottom: 30px;
         }
 
-        /* تذييل الصفحة (Footer) */
-        .footer {
-            background-color: #333;
-            color: #fff;
-            text-align: center;
+        .cta-button {
+            display: inline-block;
+            padding: 15px 30px;
+            background-color: #fff;
+            color: #000;
+            text-decoration: none;
+            border-radius: 4px;
+            transition: background-color 0.3s;
+        }
+
+        .cta-button:hover {
+            background-color: #eee;
+        }
+
+        /* Products Grid */
+        .products-section {
+            max-width: 1200px;
+            margin: 60px auto;
+            padding: 0 20px;
+        }
+
+        .products-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+            gap: 30px;
+        }
+
+        .product-card {
+            background-color: #fff;
+            border: 1px solid #eee;
             padding: 20px;
+            text-align: center;
         }
 
-        /* زر الدفع */
-        .pay-button {
-            background-color: #f1c40f;
-            border: none;
-            padding: 10px 20px;
-            color: #fff;
+        .product-image {
+            width: 100%;
+            height: 300px;
+            object-fit: cover;
+            margin-bottom: 15px;
+        }
+
+        .product-title {
+            font-size: 18px;
+            margin-bottom: 10px;
+        }
+
+        .product-price {
             font-size: 16px;
-            cursor: pointer;
+            color: #666;
         }
 
-        .pay-button:hover {
-            background-color: #e67e22;
+        /* Footer */
+        footer {
+            background-color: #000;
+            color: #fff;
+            padding: 40px 20px;
+        }
+
+        .footer-content {
+            max-width: 1200px;
+            margin: 0 auto;
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 40px;
+        }
+
+        .footer-section h3 {
+            margin-bottom: 20px;
+        }
+
+        .footer-section ul {
+            list-style: none;
+        }
+
+        .footer-section ul li {
+            margin-bottom: 10px;
+        }
+
+        .footer-section a {
+            color: #fff;
+            text-decoration: none;
+        }
+
+        .footer-bottom {
+            text-align: center;
+            margin-top: 40px;
+            padding-top: 20px;
+            border-top: 1px solid #333;
+        }
+
+        /* Responsive Design */
+        @media (max-width: 768px) {
+            .nav-links {
+                display: none;
+            }
+
+            .hero h1 {
+                font-size: 36px;
+            }
+
+            .hero p {
+                font-size: 16px;
+            }
         }
     </style>
 </head>
 <body>
-    <!-- شريط الإشعارات العلوي -->
-    <div class="notification-bar">
-        <p>Free shipping on orders over $50!</p>
+    <!-- Announcement Bar -->
+    <div class="announcement-bar">
+        شحن مجاني للطلبات فوق 500 ريال
     </div>
 
-    <!-- شريط التنقل -->
-    <div class="navbar">
-        <div class="logo">Ayther</div>
-        <div class="menu">
-            <a href="#">Home</a>
-            <a href="#">Shop</a>
-            <a href="#">Collections</a>
-            <a href="#">Contact</a>
+    <!-- Navigation -->
+    <nav class="nav-container">
+        <div class="main-nav">
+            <a href="/" class="logo">Ayther</a>
+            <div class="nav-links">
+                <a href="/">الرئيسية</a>
+                <a href="/shop">المتجر</a>
+                <a href="/collections">المجموعات</a>
+                <a href="/contact">اتصل بنا</a>
+            </div>
         </div>
-        <div class="icons">
-            <a href="#">🔍</a>
-            <a href="#">🛒</a>
-            <a href="#">👤</a>
-        </div>
-    </div>
+    </nav>
 
-    <!-- الصورة الرئيسية (Hero Section) -->
+    <!-- Hero Section -->
     <section class="hero">
-        <img src="hero-image.jpg" alt="Hero Image"> <!-- تأكد من أن الصورة موجودة -->
-        <h1>Welcome to Ayther</h1>
-        <p>Your style, your identity.</p>
+        <div class="hero-content">
+            <h1>مرحباً بكم في Ayther</h1>
+            <p>اكتشف مجموعتنا الحصرية من المنتجات المميزة</p>
+            <a href="/shop" class="cta-button">تسوق الآن</a>
+        </div>
     </section>
 
-    <!-- تذييل الصفحة (Footer) -->
-    <footer class="footer">
-        <p>© 2024 Ayther. All rights reserved.</p>
-    </footer>
+    <!-- Products Section -->
+    <section class="products-section">
+        <div class="products-grid">
+            <!-- Product Card 1 -->
+            <div class="product-card">
+                <img src="https://via.placeholder.com/300x400" alt="منتج 1" class="product-image">
+                <h3 class="product-title">منتج 1</h3>
+                <p class="product-price">299 ريال</p>
+            </div>
+            <!-- Product Card 2 -->
+            <div class="product-card">
+                <img src="https://via.placeholder.com/300x400" alt="منتج 2" class="product-image">
+                <h3 class="product-title">منتج 2</h3>
+                <p class="product-price">399 ريال</p>
+            </div>
+            <!-- Product Card 3 -->
+            <div class="product-card">
+                <img src="https://via.placeholder.com/300x400" alt="منتج 3" class="product-image">
+                <h3 class="product-title">منتج 3</h3>
+                <p class="product-price">499 ريال</p>
+            </div>
+        </div>
+    </section>
 
-    <!-- زر الدفع -->
-    <button class="pay-button">Pay Now</button>
+    <!-- Footer -->
+    <footer>
+        <div class="footer-content">
+            <div class="footer-section">
+                <h3>عن Ayther</h3>
+                <ul>
+                    <li><a href="/about">من نحن</a></li>
+                    <li><a href="/contact">اتصل بنا</a></li>
+                    <li><a href="/careers">الوظائف</a></li>
+                </ul>
+            </div>
+            <div class="footer-section">
+                <h3>خدمة العملاء</h3>
+                <ul>
+                    <li><a href="/shipping">معلومات الشحن</a></li>
+                    <li><a href="/returns">سياسة الإرجاع</a></li>
+                    <li><a href="/faq">الأسئلة الشائعة</a></li>
+                </ul>
+            </div>
+            <div class="footer-section">
+                <h3>تابعنا</h3>
+                <ul>
+                    <li><a href="#">انستغرام</a></li>
+                    <li><a href="#">تويتر</a></li>
+                    <li><a href="#">فيسبوك</a></li>
+                </ul>
+            </div>
+        </div>
+        <div class="footer-bottom">
+            <p>&copy; 2024 Ayther. جميع الحقوق محفوظة</p>
+        </div>
+    </footer>
 </body>
 </html>
